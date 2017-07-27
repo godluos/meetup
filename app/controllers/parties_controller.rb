@@ -1,5 +1,6 @@
 class PartiesController < ApplicationController
   before_action :set_party, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user! , only: [:new, :create]
 
   # GET /parties
   # GET /parties.json
@@ -25,6 +26,7 @@ class PartiesController < ApplicationController
   # POST /parties.json
   def create
     @party = Party.new(party_params)
+    @party.user = current_user
 
     respond_to do |format|
       if @party.save
