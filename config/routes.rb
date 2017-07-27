@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :parties
+  resources :parties do
+    resources :post
+  end
   devise_for :users
   root "parties#index"
 end
