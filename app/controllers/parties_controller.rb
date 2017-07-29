@@ -11,6 +11,7 @@ class PartiesController < ApplicationController
   # GET /parties/1
   # GET /parties/1.json
   def show
+    @posts = @party.posts
   end
 
   # GET /parties/new
